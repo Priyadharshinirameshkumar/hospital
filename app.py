@@ -1,7 +1,7 @@
 import streamlit as st
 import sqlite3
 import pandas as pd
-import shutil
+
 
 # Set Streamlit page config
 st.set_page_config(page_title="Hospital Cloud System", layout="wide")
@@ -136,14 +136,5 @@ elif choice == "Reports":
 # Close connection
 conn.close()
 
-with st.expander("📂 View Cloud Storage Info"):
-    total, used, free = shutil.disk_usage("/")
-    total_gb = total // (2**30)
-    used_gb = used // (2**30)
-    free_gb = free // (2**30)
 
-    st.write(f"**Total Storage:** {total_gb} GB")
-    st.write(f"**Used Storage:** {used_gb} GB")
-    st.write(f"**Free Storage:** {free_gb} GB")
-    st.progress(used / total)
 
